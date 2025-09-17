@@ -11,11 +11,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
   console.log('Middleware article-pinia', to.name, to.params?.id)
   if (to.name === 'article-pinia-id' && to.params?.id) {
     // THIS WORKS:
-    // const store = useArticleStore()
+    // const store = useArticleStore() // Init store before fetch
     try {
       const res = await $fetch(`/api/article?id=${to.params.id}`)
       // THIS DOES NOT WORK:
-      const store = useArticleStore()
+      const store = useArticleStore() // Init store after fetch
       store.setCurrentArticle(res)
     } catch {
       console.error('Middleware failed to fetch article')
