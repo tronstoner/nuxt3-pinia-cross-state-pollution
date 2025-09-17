@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt3-pinia-cross-state-pollution",
   "private": true,
   "type": "module",
   "scripts": {
