@@ -1,6 +1,9 @@
 import { defineNuxtRouteMiddleware } from 'nuxt/app'
 import { useArticleStore } from '../store/articlestore'
-console.log('article middleware loaded')
+
+// THIS WILL ALSO NOT WORK (as store is initialized outside the proper nuxt
+// lifecycle):
+// const store = useArticleStore() // Init store on module level
 
 export default defineNuxtRouteMiddleware(async (to) => {
   if (!to) {
